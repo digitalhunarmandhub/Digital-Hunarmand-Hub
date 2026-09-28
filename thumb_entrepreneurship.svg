@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="60%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="rocketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1280" height="720" fill="url(#bgGrad)"/>
+  <circle cx="1020" cy="360" r="340" fill="url(#glowGrad)"/>
+  <circle cx="200" cy="100" r="260" fill="#3b82f6" fill-opacity="0.04"/>
+
+  <!-- Subtle Studio Grid -->
+  <g stroke="#cbd5e1" stroke-width="1" opacity="0.35">
+    <line x1="0" y1="120" x2="1280" y2="120"/>
+    <line x1="0" y1="240" x2="1280" y2="240"/>
+    <line x1="0" y1="360" x2="1280" y2="360"/>
+    <line x1="0" y1="480" x2="1280" y2="480"/>
+    <line x1="0" y1="600" x2="1280" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="720"/>
+    <line x1="400" y1="0" x2="400" y2="720"/>
+    <line x1="600" y1="0" x2="600" y2="720"/>
+    <line x1="800" y1="0" x2="800" y2="720"/>
+    <line x1="1000" y1="0" x2="1000" y2="720"/>
+  </g>
+
+  <!-- LEFT COLUMN: Typography & Badges -->
+  <g transform="translate(80, 110)">
+    <!-- LIVE Badge -->
+    <g>
+      <rect x="0" y="0" width="240" height="48" rx="24" fill="url(#pillGrad)" filter="url(#cardShadow)"/>
+      <circle cx="28" cy="24" r="8" fill="#ef4444" filter="url(#glowFilter)"/>
+      <circle cx="28" cy="24" r="4" fill="#ffffff"/>
+      <text x="50" y="31" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="800" fill="#ffffff" letter-spacing="1.5">LIVE ONLINE COURSE</text>
+    </g>
+
+    <!-- Main Title Lines -->
+    <text x="0" y="140" font-family="-apple-system, BlinkMacSystemFont, 'Montserrat', 'Segoe UI', sans-serif" font-size="64" font-weight="900" fill="#0f172a" letter-spacing="-1.5">PLANNING &amp;</text>
+    <text x="0" y="215" font-family="-apple-system, BlinkMacSystemFont, 'Montserrat', 'Segoe UI', sans-serif" font-size="64" font-weight="900" fill="#2563eb" letter-spacing="-1.5">ENTREPRENEURSHIP</text>
+
+    <!-- Subtitle / Key Areas -->
+    <text x="0" y="295" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="700" fill="#475569">
+      Startup Strategy • Pitch Decks • Financial Models
+    </text>
+    <text x="0" y="335" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="600" fill="#64748b">
+      Lean Canvas • Market Validation • Seed Fundraising • Scaling
+    </text>
+
+    <!-- Stat Pill Tags -->
+    <g transform="translate(0, 390)">
+      <rect x="0" y="0" width="180" height="42" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+      <text x="18" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">⚡ Founder Roadmap</text>
+
+      <rect x="195" y="0" width="200" height="42" rx="12" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
+      <text x="213" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#b45309">🚀 Venture Acceleration</text>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN: Modern High-Tech Studio Dashboard & 3D Isometric Cards -->
+  <g transform="translate(740, 90)">
+    <!-- Main Dashboard Card -->
+    <rect x="0" y="50" width="460" height="340" rx="24" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)"/>
+    
+    <!-- Dashboard Top Bar -->
+    <path d="M 0 74 Q 0 50 24 50 L 436 50 Q 460 50 460 74 L 460 95 L 0 95 Z" fill="#0f172a"/>
+    <circle cx="28" cy="72" r="5" fill="#ef4444"/>
+    <circle cx="44" cy="72" r="5" fill="#f59e0b"/>
+    <circle cx="60" cy="72" r="5" fill="#10b981"/>
+    <text x="90" y="77" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="700" fill="#94a3b8" letter-spacing="1">STARTUP GROWTH ANALYTICS • 2026</text>
+
+    <!-- Growth Curve & Bars -->
+    <g transform="translate(40, 130)">
+      <!-- Target Revenue text -->
+      <text x="0" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#64748b" text-transform="uppercase">Venture Valuation &amp; Revenue</text>
+      <text x="0" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="32" font-weight="900" fill="#0f172a">$250,000+</text>
+      <rect x="180" y="32" width="75" height="26" rx="8" fill="#dcfce7"/>
+      <text x="192" y="49" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#15803d">+148% MoM</text>
+
+      <!-- Bar Chart -->
+      <g transform="translate(0, 85)">
+        <line x1="0" y1="130" x2="380" y2="130" stroke="#e2e8f0" stroke-width="1.5"/>
+        <rect x="20" y="80" width="38" height="50" rx="6" fill="#93c5fd"/>
+        <rect x="80" y="60" width="38" height="70" rx="6" fill="#60a5fa"/>
+        <rect x="140" y="45" width="38" height="85" rx="6" fill="#3b82f6"/>
+        <rect x="200" y="30" width="38" height="100" rx="6" fill="#2563eb"/>
+        <rect x="260" y="10" width="38" height="120" rx="6" fill="url(#chartGrad)"/>
+        <rect x="320" y="-5" width="38" height="135" rx="6" fill="url(#goldGrad)"/>
+      </g>
+    </g>
+
+    <!-- 3D Floating Elements -->
+    <!-- 1. Floating Glowing Rocket Idea Badge -->
+    <g transform="translate(-40, 20)" filter="url(#cardShadow)">
+      <rect width="110" height="110" rx="28" fill="#ffffff" stroke="#fed7aa" stroke-width="2"/>
+      <circle cx="55" cy="55" r="40" fill="#fff7ed"/>
+      <text x="32" y="68" font-size="44">🚀</text>
+    </g>
+
+    <!-- 2. Floating 3D Deal Handshake Badge -->
+    <g transform="translate(370, 260)" filter="url(#cardShadow)">
+      <rect width="105" height="105" rx="26" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+      <circle cx="52" cy="52" r="38" fill="#eff6ff"/>
+      <text x="30" y="65" font-size="40">🤝</text>
+    </g>
+
+    <!-- 3. Floating Lightbulb Idea Badge -->
+    <g transform="translate(20, 340)" filter="url(#cardShadow)">
+      <rect width="95" height="95" rx="24" fill="#ffffff" stroke="#fef08a" stroke-width="2"/>
+      <circle cx="47" cy="47" r="35" fill="#fefce8"/>
+      <text x="26" y="60" font-size="38">💡</text>
+    </g>
+  </g>
+
+  <!-- Bottom Brand Watermark -->
+  <g transform="translate(80, 650)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#94a3b8" letter-spacing="1.2">
+      DIGITAL HUNARMAND HUB • PROFESSIONAL ACADEMY 2026
+    </text>
+  </g>
+</svg>
