@@ -45,7 +45,8 @@ Digital-Hunarmand-Hub-main/
 | **Mission & Why Us** | `Lines 725 – 1100` | `index.html` (`#mission`, `#why`, values & vision cards) |
 | **Courses (`#courses`)** | `Lines 1101 – 1800`| `index.html` (Course catalog, category filter tabs, cards) |
 | **Portfolio (`#projects`)** | `Lines 1801 – 1980`| `index.html` (HELMAN NGO, Sarhad Furniture live showcases) |
-| **Team Leadership (`#team`)** | `Lines 1981 – 2030`| `index.html` (Executive leadership dossier card triggers) |
+| **Team Leadership (`#team`)** | `Lines 2154 – 2310`| `index.html` (Executive leadership dossier card triggers) |
+| **Department Internees (`#departments`)** | `Lines 2311 – 2750`| `index.html` (Scrollable bar + slider for Creative, Technical, Media, Researcher Internees) |
 | **Chatbot Modal (`#chatModal`)**| `Lines 2031 – 2064`| `index.html` (Hunarmand AI chat window, `#cin` input) |
 | **⚡ CORE JS ENGINE** | **All lines (1 – 1454)** | `js/main.js` (Linked at line 2065: Gemini AI, Course Filter, Forms) |
 | **Mentorship Popup** | `Lines 2067 – 2084`| `index.html` (`#popupOverlay`, admission banner, WhatsApp apply) |

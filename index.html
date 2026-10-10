@@ -1850,16 +1850,16 @@
     </div>
     <div class="int-grid">
       <div class="reveal-l">
-        <div class="int-badge"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Internship Program 2026</div>
-        <h2 class="int-left" style="font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-1px;margin-bottom:24px;line-height:1.1">3-Month Professional<br/><span class="g-text">Internship Program</span></h2>
+        <div class="int-badge"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Batch 2 Internship • Paid Opportunity</div>
+        <h2 class="int-left" style="font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-1px;margin-bottom:24px;line-height:1.15">Batch 2 Internship<br/><span class="g-text">2 Months Professional Paid Internship</span></h2>
         <div class="int-meta">
           <div class="int-meta-item">
             <div class="int-meta-ico">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             </div>
             <div class="int-meta-txt">
-              <strong>3 Months</strong>
-              <span>Duration</span>
+              <strong>2 Months</strong>
+              <span>Duration (Paid)</span>
             </div>
           </div>
           <div class="int-meta-item">
@@ -1880,22 +1880,244 @@
               <span>Organization</span>
             </div>
           </div>
+          <div class="int-meta-item">
+            <div class="int-meta-ico" style="background:rgba(34,197,94,0.12);color:#16a34a">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="int-meta-txt">
+              <strong style="color:#16a34a">Paid Opportunity</strong>
+              <span>Monthly Stipend</span>
+            </div>
+          </div>
         </div>
-        <a href="https://wa.me/923485168409" target="_blank" class="btn-blue">Apply Now</a>
+        <button type="button" class="btn-blue" id="openInternshipModalBtn" style="cursor:pointer;border:none;">
+          <span>Apply For Internship</span>
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
       </div>
       <div class="reveal-r">
         <div class="int-banner-card" style="background:var(--bg-cream-card);border:1.5px solid var(--border-card);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-soft);transition:all .35s ease">
           <div class="desktop-banner-only">
-            <img src="thumb_internship_program.jpg" alt="3-Month Internship Program 2026 - Digital Hunarmand Hub" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border-radius:24px;"/>
+            <img src="thumb_internship_program.jpg" alt="Batch 2 Internship - 2 Months Professional Paid Internship - Digital Hunarmand Hub" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border-radius:24px;"/>
           </div>
           <div class="mobile-banner-only">
-            <img src="thumb_internship_program.jpg" alt="3-Month Internship Program Mobile - Digital Hunarmand Hub" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border-radius:18px;"/>
+            <img src="thumb_internship_program.jpg" alt="Batch 2 Internship - 2 Months Professional Paid Internship Mobile - Digital Hunarmand Hub" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border-radius:18px;"/>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- BATCH 2 INTERNSHIP APPLICATION MODAL -->
+<div id="internshipModal" class="dc-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="dc-modal-backdrop" id="internshipModalBackdrop"></div>
+  <div class="dc-modal-container">
+    <div class="dc-modal-card">
+
+      <!-- Modal Header -->
+      <div class="dc-modal-head" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+        <h3 class="dc-modal-title" style="margin-bottom:0">Internship <span class="g-text">Application Form</span></h3>
+        <button type="button" class="dc-modal-close" id="internshipModalClose" aria-label="Close Internship Modal" style="position:static;flex-shrink:0;margin-left:12px;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Internship Application Form -->
+      <form id="internshipForm" class="dc-enroll-form" novalidate>
+        <div class="dc-form-grid">
+          <!-- Full Name -->
+          <div class="dc-form-group">
+            <label for="intName" class="dc-form-label">Full Name</label>
+            <div class="dc-input-wrap">
+              <svg class="dc-input-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="intName" name="fullName" class="dc-form-input" placeholder="e.g. Muhammad Zeeshan" required autocomplete="name"/>
+            </div>
+            <span class="dc-error-msg" id="intNameError">Please enter your full name</span>
+          </div>
+
+          <!-- WhatsApp Number -->
+          <div class="dc-form-group">
+            <label for="intWhatsapp" class="dc-form-label">WhatsApp Number</label>
+            <div class="dc-input-wrap">
+              <svg class="dc-input-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <input type="tel" id="intWhatsapp" name="whatsapp" class="dc-form-input" placeholder="e.g 03xxxxxxxxx" required autocomplete="tel"/>
+            </div>
+            <span class="dc-error-msg" id="intWhatsappError">Please enter a valid WhatsApp number</span>
+          </div>
+
+          <!-- Email Address -->
+          <div class="dc-form-group">
+            <label for="intEmail" class="dc-form-label">Email Address</label>
+            <div class="dc-input-wrap">
+              <svg class="dc-input-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <input type="email" id="intEmail" name="email" class="dc-form-input" placeholder="e.g. yourname@gmail.com" required autocomplete="email"/>
+            </div>
+            <span class="dc-error-msg" id="intEmailError">Please enter a valid email address</span>
+          </div>
+
+          <!-- City / Location -->
+          <div class="dc-form-group">
+            <label for="intCity" class="dc-form-label">City / Location</label>
+            <div class="dc-input-wrap">
+              <svg class="dc-input-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <input type="text" id="intCity" name="city" class="dc-form-input" placeholder="e.g swat" required/>
+            </div>
+            <span class="dc-error-msg" id="intCityError">Please enter your city or location</span>
+          </div>
+
+          <!-- Internship Field -->
+          <div class="dc-form-group dc-col-full">
+            <label for="intDomain" class="dc-form-label">Internship Field</label>
+            <div class="dc-input-wrap">
+              <svg class="dc-input-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <input type="text" id="intDomain" name="domain" class="dc-form-input" value="Graphic Designing &amp; Visual Identity" placeholder="Select or type your field..." required autocomplete="off" list="intDomainList"/>
+              <datalist id="intDomainList">
+                <option value="Graphic Designing &amp; Visual Identity"></option>
+                <option value="Full-Stack Web Development"></option>
+                <option value="Digital Marketing &amp; SEO"></option>
+                <option value="Video Editing &amp; Content Creation"></option>
+                <option value="UI/UX &amp; Product Interface"></option>
+                <option value="Python Data Analysis &amp; AI"></option>
+                <option value="Amazon &amp; E-Commerce Management"></option>
+                <option value="Social Media Management"></option>
+              </datalist>
+            </div>
+            <span class="dc-error-msg" id="intDomainError">Please enter or select your internship field</span>
+            <!-- Minimalist Modern Recommendation Slide -->
+            <div class="int-rec-wrap">
+              <div class="int-rec-chips" id="intDomainChips">
+                <button type="button" class="int-chip is-active" data-val="Graphic Designing &amp; Visual Identity">Graphic Designing</button>
+                <button type="button" class="int-chip" data-val="Full-Stack Web Development">Web Development</button>
+                <button type="button" class="int-chip" data-val="Digital Marketing &amp; SEO">Digital Marketing</button>
+                <button type="button" class="int-chip" data-val="Video Editing &amp; Content Creation">Video Editing</button>
+                <button type="button" class="int-chip" data-val="UI/UX &amp; Product Interface">UI/UX Design</button>
+                <button type="button" class="int-chip" data-val="Python Data Analysis &amp; AI">Python &amp; AI</button>
+                <button type="button" class="int-chip" data-val="Amazon &amp; E-Commerce Management">Amazon / E-Com</button>
+                <button type="button" class="int-chip" data-val="Social Media Management">Social Media</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Qualification -->
+          <div class="dc-form-group dc-col-full">
+            <label for="intEducation" class="dc-form-label">Qualification</label>
+            <div class="dc-input-wrap">
+              <svg class="dc-input-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <input type="text" id="intEducation" name="education" class="dc-form-input" value="Intermediate / FSc / FA / DAE" placeholder="Select or type your qualification..." required autocomplete="off" list="intEducationList"/>
+              <datalist id="intEducationList">
+                <option value="Intermediate / FSc / FA / DAE"></option>
+                <option value="BS / Bachelor's (Ongoing / In Progress)"></option>
+                <option value="Graduate / Fresh Passout"></option>
+                <option value="Master's Degree"></option>
+                <option value="Diploma in IT / DIT"></option>
+                <option value="Matriculation"></option>
+                <option value="Self-Taught / Freelancer"></option>
+              </datalist>
+            </div>
+            <span class="dc-error-msg" id="intEducationError">Please enter or select your qualification</span>
+            <!-- Minimalist Modern Recommendation Slide -->
+            <div class="int-rec-wrap">
+              <div class="int-rec-chips" id="intEduChips">
+                <button type="button" class="int-chip is-active" data-val="Intermediate / FSc / FA / DAE">Intermediate / FSc</button>
+                <button type="button" class="int-chip" data-val="BS / Bachelor's (Ongoing / In Progress)">BS / Bachelor's</button>
+                <button type="button" class="int-chip" data-val="Graduate / Fresh Passout">Graduate</button>
+                <button type="button" class="int-chip" data-val="Master's Degree">Master's</button>
+                <button type="button" class="int-chip" data-val="Diploma in IT / DIT">Diploma / DIT</button>
+                <button type="button" class="int-chip" data-val="Self-Taught / Freelancer">Self-Taught</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upload CV / Resume -->
+          <div class="dc-form-group dc-col-full">
+            <label class="dc-form-label">Upload CV / Resume <small style="color:#94a3b8;font-weight:normal;">(Optional)</small></label>
+            <input type="file" id="intCvFile" name="attachment" accept=".pdf,.doc,.docx" style="display:none;"/>
+            <div class="int-upload-box" id="intUploadBox">
+              <div class="int-upload-left">
+                <div class="int-upload-icon" id="intUploadIcon">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <div class="int-upload-text">
+                  <span class="int-upload-title" id="intUploadTitle">Click to upload your CV / Resume</span>
+                  <span class="int-upload-sub" id="intUploadSub">PDF, DOC, DOCX up to 10MB</span>
+                </div>
+              </div>
+              <button type="button" class="int-upload-btn" id="intUploadTrigger">Choose File</button>
+              <button type="button" class="int-remove-btn" id="intRemoveFile" title="Remove file" aria-label="Remove file">&#10005;</button>
+            </div>
+          </div>
+
+          <!-- Portfolio Link -->
+          <div class="dc-form-group dc-col-full">
+            <label for="intPortfolio" class="dc-form-label">Portfolio Link <small style="color:#94a3b8;font-weight:normal;">(Optional)</small></label>
+            <div class="dc-input-wrap">
+              <svg class="dc-input-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <input type="url" id="intPortfolio" name="portfolio" class="dc-form-input" placeholder="e.g. Behance, GitHub, or Drive link"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="dc-form-submit-wrap">
+          <button type="submit" id="intSubmitBtn" class="btn-dc-submit-enroll">
+            <span>Submit</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Post-Submission Success State -->
+      <div id="internshipSuccess" class="dc-enroll-success" style="display:none;">
+        <div class="dc-success-badge-icon" style="background:rgba(34,197,94,0.15);border:2px solid rgba(34,197,94,0.35);">
+          <svg width="40" height="40" fill="none" stroke="#22c55e" stroke-width="2.8" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h4 class="dc-success-title">Application Submitted Successfully!</h4>
+        <p class="dc-success-subtitle">Your application for <strong>Batch 2 — 2 Months Professional Paid Internship</strong> has been registered and emailed directly to our admissions team at Gmail (digitalhunarmand1@gmail.com).</p>
+        
+        <!-- Registration Receipt Box -->
+        <div class="dc-receipt-box">
+          <div class="dc-receipt-row">
+            <span class="dc-receipt-label">Application ID</span>
+            <strong class="dc-receipt-id" id="intSuccAppId">DH-INT-2026-0000</strong>
+          </div>
+          <div class="dc-receipt-row">
+            <span class="dc-receipt-label">Applicant Name</span>
+            <span id="intSuccName">Name</span>
+          </div>
+          <div class="dc-receipt-row">
+            <span class="dc-receipt-label">WhatsApp Contact</span>
+            <strong id="intSuccWhatsapp" style="color:#16a34a">+92 3xx xxxxxxx</strong>
+          </div>
+          <div class="dc-receipt-row">
+            <span class="dc-receipt-label">Selected Field</span>
+            <strong id="intSuccDomain" style="color:var(--blue)">Graphic Designing</strong>
+          </div>
+          <div class="dc-receipt-row">
+            <span class="dc-receipt-label">Qualification</span>
+            <span id="intSuccEdu">Intermediate</span>
+          </div>
+          <div class="dc-receipt-row">
+            <span class="dc-receipt-label">CV / Resume</span>
+            <span id="intSuccCv">Uploaded</span>
+          </div>
+          <div class="dc-receipt-row">
+            <span class="dc-receipt-label">Program Type</span>
+            <span id="intSuccProgram" style="font-weight:700;color:#16a34a;">Batch 2 (2 Months Paid)</span>
+          </div>
+        </div>
+
+        <!-- WhatsApp Admission Button -->
+        <div class="dc-success-actions">
+          <a id="intSuccWaBtn" href="#" target="_blank" class="btn-dc-success-wa">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.4.63 4.65 1.74 6.59L2 30l7.59-1.74A14 14 0 0016 30c7.73 0 14-6.27 14-14S23.73 2 16 2z" fill="white"/><path d="M23.1 19.9c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.67-2.09-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51H12c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" fill="#22c55e"/></svg>
+            <span>Confirm on WhatsApp (Instant Response)</span>
+          </a>
+          <button type="button" class="btn-dc-close-succ" id="intSuccCloseBtn">Done / Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- MENTORSHIP -->
 <section class="mentorship standalone-section" id="mentorship">
@@ -2086,6 +2308,375 @@
       </button>
     </div>
     </div><!-- /lead-grid-perspective -->
+
+    <!-- ── DEPARTMENT INTERNEES SECTION (SCROLLABLE BAR + SLIDER) ── -->
+    <div class="dept-internees-section reveal" id="departments">
+      <div class="dept-header-wrap">
+        <div class="lead-dept-badge dept-badge-glow">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Department Internees</span>
+        </div>
+        <h3 class="st dept-section-title" style="margin-bottom:8px">Department <span class="g-text">Teams &amp; Internees</span></h3>
+      </div>
+
+      <!-- Horizontal Scrollable Department Bar (Mobile & PC) -->
+      <div class="dept-bar-wrapper">
+        <button class="dept-bar-scroll-btn dept-bar-left" id="deptBarLeftBtn" type="button" aria-label="Scroll departments left">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <div class="dept-scroll-bar" id="deptScrollBar">
+          <button type="button" class="dept-tab is-active" data-dept="creative" data-index="0">
+            <span class="dept-tab-text">Creative Department Internee</span>
+            <span class="dept-tab-badge">6</span>
+          </button>
+          <button type="button" class="dept-tab" data-dept="technical" data-index="1">
+            <span class="dept-tab-text">Technical Department Internee</span>
+            <span class="dept-tab-badge">5</span>
+          </button>
+          <button type="button" class="dept-tab" data-dept="media" data-index="2">
+            <span class="dept-tab-text">Media Department Internee</span>
+            <span class="dept-tab-badge">4</span>
+          </button>
+          <button type="button" class="dept-tab" data-dept="researcher" data-index="3">
+            <span class="dept-tab-text">Researcher Department Internee</span>
+            <span class="dept-tab-badge">2</span>
+          </button>
+        </div>
+
+        <button class="dept-bar-scroll-btn dept-bar-right" id="deptBarRightBtn" type="button" aria-label="Scroll departments right">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <!-- Department Swipeable & Scrollable Carousel (Mobile & PC) -->
+      <div class="dept-carousel-perspective">
+        <div class="dept-slider-track" id="deptSliderTrack">
+
+          <!-- 1. Creative Department Internee Slide -->
+          <div class="dept-slide is-active" data-dept="creative" id="slide-creative">
+            <div class="dept-card-header">
+              <div class="dept-banner-left">
+                <span class="dept-banner-badge">🎨 Creative Department Internee</span>
+                <span class="dept-banner-role">Design • Branding • Visual Direction &amp; Graphics</span>
+              </div>
+              <span class="dept-pill-count">6 Active Members</span>
+            </div>
+            <div class="dept-members-grid">
+              <!-- WAQAR AHMED -->
+              <div class="internee-card">
+                <div class="internee-avatar av-creative">
+                  <span>WA</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">WAQAR AHMED</h4>
+                  <p class="internee-role">Creative Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-creative">UI/UX &amp; Visual Design</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- NIAMATULLAH KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-creative">
+                  <span>NK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">NIAMATULLAH KHAN</h4>
+                  <p class="internee-role">Creative Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-creative">Graphic Design &amp; Layout</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- REHAN KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-creative">
+                  <span>RK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">REHAN KHAN</h4>
+                  <p class="internee-role">Creative Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-creative">Digital Assets &amp; Branding</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SHAH SAAD -->
+              <div class="internee-card">
+                <div class="internee-avatar av-creative">
+                  <span>SS</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">SHAH SAAD</h4>
+                  <p class="internee-role">Creative Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-creative">Visual Arts &amp; Typography</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SOHAIB KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-creative">
+                  <span>SK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">SOHAIB KHAN</h4>
+                  <p class="internee-role">Creative Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-creative">Motion Graphics &amp; Social</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANEEZA SIDDIQUE -->
+              <div class="internee-card">
+                <div class="internee-avatar av-creative">
+                  <span>AS</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">ANEEZA SIDDIQUE</h4>
+                  <p class="internee-role">Creative Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-creative">Creative Identity &amp; Artwork</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Technical Department Internee Slide -->
+          <div class="dept-slide" data-dept="technical" id="slide-technical">
+            <div class="dept-card-header">
+              <div class="dept-banner-left">
+                <span class="dept-banner-badge">💻 Technical Department Internee</span>
+                <span class="dept-banner-role">Full-Stack • Web Dev • Cloud Systems &amp; APIs</span>
+              </div>
+              <span class="dept-pill-count">5 Active Members</span>
+            </div>
+            <div class="dept-members-grid">
+              <!-- MUHAMMAD YASEEN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-technical">
+                  <span>MY</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">MUHAMMAD YASEEN</h4>
+                  <p class="internee-role">Technical Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-technical">Full-Stack Development</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- NIAMATULLAH KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-technical">
+                  <span>NK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">NIAMATULLAH KHAN</h4>
+                  <p class="internee-role">Technical Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-technical">Frontend &amp; Responsive UI</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANEEZA SIDDIQUE -->
+              <div class="internee-card">
+                <div class="internee-avatar av-technical">
+                  <span>AS</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">ANEEZA SIDDIQUE</h4>
+                  <p class="internee-role">Technical Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-technical">Web Systems &amp; Testing</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SHAH SAAD -->
+              <div class="internee-card">
+                <div class="internee-avatar av-technical">
+                  <span>SS</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">SHAH SAAD</h4>
+                  <p class="internee-role">Technical Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-technical">Database &amp; API Integration</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- HAMZA KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-technical">
+                  <span>HK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">HAMZA KHAN</h4>
+                  <p class="internee-role">Technical Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-technical">Software Engineering &amp; IT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Media Department Internee Slide -->
+          <div class="dept-slide" data-dept="media" id="slide-media">
+            <div class="dept-card-header">
+              <div class="dept-banner-left">
+                <span class="dept-banner-badge">🎬 Media Department Internee</span>
+                <span class="dept-banner-role">Video Production • Reels • Audio &amp; Content Creation</span>
+              </div>
+              <span class="dept-pill-count">4 Active Members</span>
+            </div>
+            <div class="dept-members-grid">
+              <!-- NIAMATULLAH KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-media">
+                  <span>NK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">NIAMATULLAH KHAN</h4>
+                  <p class="internee-role">Media Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-media">Video Editing &amp; FX</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- REHAN KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-media">
+                  <span>RK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">REHAN KHAN</h4>
+                  <p class="internee-role">Media Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-media">Content Strategy &amp; Editing</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SHAFI KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-media">
+                  <span>SK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">SHAFI KHAN</h4>
+                  <p class="internee-role">Media Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-media">Cinematography &amp; Audio</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SOHAIB KHAN -->
+              <div class="internee-card">
+                <div class="internee-avatar av-media">
+                  <span>SK</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">SOHAIB KHAN</h4>
+                  <p class="internee-role">Media Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-media">Reels &amp; Viral Social Media</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Researcher Department Internee Slide -->
+          <div class="dept-slide" data-dept="researcher" id="slide-researcher">
+            <div class="dept-card-header">
+              <div class="dept-banner-left">
+                <span class="dept-banner-badge">🔬 Researcher Department Internee</span>
+                <span class="dept-banner-role">Market Intelligence • Data Sourcing &amp; Analysis</span>
+              </div>
+              <span class="dept-pill-count">2 Active Members</span>
+            </div>
+            <div class="dept-members-grid">
+              <!-- ANEEZA SIDDIQUE -->
+              <div class="internee-card">
+                <div class="internee-avatar av-researcher">
+                  <span>AS</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">ANEEZA SIDDIQUE</h4>
+                  <p class="internee-role">Researcher Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-researcher">Market Insights &amp; Academic</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SHAH SAAD -->
+              <div class="internee-card">
+                <div class="internee-avatar av-researcher">
+                  <span>SS</span>
+                  <div class="internee-pulse-dot" title="Active"></div>
+                </div>
+                <div class="internee-details">
+                  <h4 class="internee-name">SHAH SAAD</h4>
+                  <p class="internee-role">Researcher Department Internee</p>
+                  <div class="internee-tags">
+                    <span class="itag itag-researcher">Data Analysis &amp; Tech Trends</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /dept-slider-track -->
+      </div><!-- /dept-carousel-perspective -->
+
+      <!-- Department Carousel Nav (Arrows + Dots) for PC & Mobile -->
+      <div class="dept-carousel-nav" id="deptCarouselNav">
+        <button class="dept-nav-arrow dept-slide-prev" id="deptSlidePrev" type="button" aria-label="Previous Department">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="lead-dots dept-dots" id="deptDots">
+          <button class="lead-dot active" data-index="0" type="button" aria-label="Creative Department"></button>
+          <button class="lead-dot" data-index="1" type="button" aria-label="Technical Department"></button>
+          <button class="lead-dot" data-index="2" type="button" aria-label="Media Department"></button>
+          <button class="lead-dot" data-index="3" type="button" aria-label="Researcher Department"></button>
+        </div>
+        <button class="dept-nav-arrow dept-slide-next" id="deptSlideNext" type="button" aria-label="Next Department">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+    </div><!-- /dept-internees-section -->
+
   </div>
 </section>
 
@@ -2501,20 +3092,22 @@
 <script src="js/auto-compressor.js?v=1.0" defer></script>
 <script src="js/main.js?v=2.5" defer></script>
 
-<!-- MENTORSHIP & ADMISSION POPUP -->
-<div class="popup-overlay" id="popupOverlay">
+<!-- INTERNSHIP ANNOUNCEMENT POPUP -->
+<div class="popup-overlay" id="popupOverlay" onclick="if(event.target===this)closePopup()">
   <div class="popup-box poster-modal">
     <button class="popup-close" onclick="closePopup()" aria-label="Close">&#10005;</button>
     <div class="popup-poster-wrap">
-      <div class="desktop-banner-only">
-        <img src="mentorship_desktop_banner.jpg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/digitalhunarmandhub/Digital-Hunarmand-Hub/main/mentorship_desktop_banner.jpg'" alt="1-on-1 Mentorship & Admissions 2026" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border-radius:20px 20px 0 0;"/>
-      </div>
-      <div class="mobile-banner-only">
-        <img src="mentorship_mobile_banner.jpg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/digitalhunarmandhub/Digital-Hunarmand-Hub/main/mentorship_mobile_banner.jpg'" alt="1-on-1 Mentorship & Admissions 2026 Mobile" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border-radius:18px 18px 0 0;"/>
-      </div>
+      <a href="#internship" onclick="closePopup()" title="Click to view full Internship details" style="display:block;text-decoration:none">
+        <div class="desktop-banner-only">
+          <img src="internship_desktop_banner.jpg" onerror="this.onerror=null;this.src='thumb_internship_program.jpg'" alt="Digital Hunarmand Professional Internship Program 2026" loading="eager" decoding="sync" style="width:100%;height:auto;display:block;border-radius:20px 20px 0 0;"/>
+        </div>
+        <div class="mobile-banner-only">
+          <img src="internship_mobile_banner.jpg" onerror="this.onerror=null;this.src='thumb_internship_program.jpg'" alt="Digital Hunarmand Professional Internship Program 2026 Mobile" loading="eager" decoding="sync" style="width:100%;height:auto;display:block;border-radius:18px 18px 0 0;"/>
+        </div>
+      </a>
     </div>
     <div class="popup-poster-btns">
-      <a href="https://wa.me/923485168409?text=Hi%2C%20I%20want%20to%20apply%20for%20the%20Mentorship%20Program%20and%20Courses" target="_blank" class="popup-apply">Apply on WhatsApp Now ↗</a>
+      <a href="https://wa.me/923485168409?text=Hi%2C%20I%20want%20to%20apply%20for%20the%20Internship%20Program%202026" target="_blank" class="popup-apply">Apply for Internship Now ↗</a>
       <a href="#" class="popup-later" onclick="closePopup();return false;">Maybe Later</a>
     </div>
   </div>
@@ -2873,6 +3466,194 @@ function closePopup(){
       syncActiveCardOnScroll();
     }
   });
+})();
+</script>
+
+<script>
+/* ── DEPARTMENT INTERNEES SCROLLABLE BAR & SLIDER ENGINE ── */
+(function(){
+  function initDeptEngine(){
+    var track = document.getElementById('deptSliderTrack');
+    var scrollBar = document.getElementById('deptScrollBar');
+    if(!track || !scrollBar) return;
+
+    var slides = Array.from(track.querySelectorAll('.dept-slide'));
+    var tabs = Array.from(scrollBar.querySelectorAll('.dept-tab'));
+    var dots = Array.from(document.querySelectorAll('#deptDots .lead-dot'));
+    var prevSlideBtn = document.getElementById('deptSlidePrev');
+    var nextSlideBtn = document.getElementById('deptSlideNext');
+    var barLeftBtn = document.getElementById('deptBarLeftBtn');
+    var barRightBtn = document.getElementById('deptBarRightBtn');
+
+    var currentDeptIndex = 0;
+    var isProgrammaticScroll = false;
+    var scrollTimer = null;
+    var raf = null;
+
+    function updateActiveState(idx){
+      if(idx < 0) idx = 0;
+      if(idx >= slides.length) idx = slides.length - 1;
+      currentDeptIndex = idx;
+
+      // Update slide active classes
+      slides.forEach(function(slide, i){
+        if(i === idx){
+          slide.classList.add('is-active');
+        } else {
+          slide.classList.remove('is-active');
+        }
+      });
+
+      // Update tabs in scrollable bar
+      tabs.forEach(function(tab, i){
+        if(i === idx){
+          tab.classList.add('is-active');
+          // Auto scroll the tab into view within the horizontal bar
+          if(scrollBar.scrollWidth > scrollBar.clientWidth){
+            var tabLeft = tab.offsetLeft - scrollBar.offsetLeft;
+            var tabCenter = tabLeft - (scrollBar.clientWidth / 2) + (tab.offsetWidth / 2);
+            scrollBar.scrollTo({ left: Math.max(0, tabCenter), behavior: 'smooth' });
+          }
+        } else {
+          tab.classList.remove('is-active');
+        }
+      });
+
+      // Update navigation dots
+      dots.forEach(function(dot, i){
+        if(i === idx){
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function scrollToDepartment(idx, smooth){
+      if(idx < 0) idx = 0;
+      if(idx >= slides.length) idx = slides.length - 1;
+
+      isProgrammaticScroll = true;
+      updateActiveState(idx);
+
+      var targetSlide = slides[idx];
+      if(targetSlide){
+        var targetLeft = targetSlide.offsetLeft - track.offsetLeft;
+        track.scrollTo({
+          left: targetLeft,
+          behavior: smooth !== false ? 'smooth' : 'auto'
+        });
+      }
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function(){
+        isProgrammaticScroll = false;
+      }, 500);
+    }
+
+    // Sync active department tab on horizontal scroll / swipe
+    function onTrackScroll(){
+      if(isProgrammaticScroll) return;
+
+      var scrollLeft = track.scrollLeft;
+      var trackCenter = scrollLeft + (track.clientWidth / 2);
+      var closestIdx = 0;
+      var minDistance = Infinity;
+
+      slides.forEach(function(slide, i){
+        var slideCenter = (slide.offsetLeft - track.offsetLeft) + (slide.offsetWidth / 2);
+        var distance = Math.abs(slideCenter - trackCenter);
+        if(distance < minDistance){
+          minDistance = distance;
+          closestIdx = i;
+        }
+      });
+
+      if(closestIdx !== currentDeptIndex){
+        updateActiveState(closestIdx);
+      }
+    }
+
+    track.addEventListener('scroll', function(){
+      if(raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(onTrackScroll);
+    }, { passive: true });
+
+    // Tab clicks in scrollable bar
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(e){
+        e.preventDefault();
+        var idx = parseInt(tab.getAttribute('data-index'), 10);
+        if(!isNaN(idx)){
+          scrollToDepartment(idx, true);
+        }
+      });
+    });
+
+    // Dots click
+    dots.forEach(function(dot){
+      dot.addEventListener('click', function(e){
+        e.preventDefault();
+        var idx = parseInt(dot.getAttribute('data-index'), 10);
+        if(!isNaN(idx)){
+          scrollToDepartment(idx, true);
+        }
+      });
+    });
+
+    // Previous & Next Carousel Slide Arrows
+    if(prevSlideBtn){
+      prevSlideBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        scrollToDepartment(currentDeptIndex - 1, true);
+      });
+    }
+    if(nextSlideBtn){
+      nextSlideBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        scrollToDepartment(currentDeptIndex + 1, true);
+      });
+    }
+
+    // Top Bar Horizontal Scroll Buttons (Left & Right)
+    if(barLeftBtn){
+      barLeftBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        scrollBar.scrollBy({ left: -180, behavior: 'smooth' });
+      });
+    }
+    if(barRightBtn){
+      barRightBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        scrollBar.scrollBy({ left: 180, behavior: 'smooth' });
+      });
+    }
+
+    // Keyboard navigation
+    track.setAttribute('tabindex', '0');
+    track.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight'){
+        e.preventDefault();
+        scrollToDepartment(currentDeptIndex + 1, true);
+      } else if(e.key === 'ArrowLeft'){
+        e.preventDefault();
+        scrollToDepartment(currentDeptIndex - 1, true);
+      }
+    });
+
+    // Initialize first state
+    scrollToDepartment(0, false);
+
+    window.addEventListener('resize', function(){
+      scrollToDepartment(currentDeptIndex, false);
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initDeptEngine);
+  } else {
+    initDeptEngine();
+  }
 })();
 </script>
 

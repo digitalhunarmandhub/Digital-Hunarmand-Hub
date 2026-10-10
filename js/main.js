@@ -819,6 +819,411 @@ const secs = document.querySelectorAll('section[id]');
   window.openCourseEnrollModal = openModal;
 })();
 
+/* ── BATCH 2 - 2 MONTHS PROFESSIONAL PAID INTERNSHIP MODAL CONTROLLER ── */
+(function initInternshipModal(){
+  const modal = document.getElementById('internshipModal');
+  const backdrop = document.getElementById('internshipModalBackdrop');
+  const closeBtn = document.getElementById('internshipModalClose');
+  const form = document.getElementById('internshipForm');
+  const successBox = document.getElementById('internshipSuccess');
+  const succCloseBtn = document.getElementById('intSuccCloseBtn');
+  const openBtns = document.querySelectorAll('#openInternshipModalBtn, .open-internship-modal');
+  
+  // Field Elements
+  const domainInput = document.getElementById('intDomain');
+  const eduInput = document.getElementById('intEducation');
+  const domainChips = document.getElementById('intDomainChips');
+  const eduChips = document.getElementById('intEduChips');
+  
+  // CV Upload Elements
+  const cvInput = document.getElementById('intCvFile');
+  const uploadBox = document.getElementById('intUploadBox');
+  const uploadTitle = document.getElementById('intUploadTitle');
+  const uploadSub = document.getElementById('intUploadSub');
+  const uploadTrigger = document.getElementById('intUploadTrigger');
+  const removeFileBtn = document.getElementById('intRemoveFile');
+
+  if (!modal || !form) return;
+
+  // ── Setup Minimalist Recommendation Chips ──
+  function setupChips(container, input) {
+    if (!container || !input) return;
+    const chips = container.querySelectorAll('.int-chip');
+    chips.forEach(chip => {
+      chip.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        chips.forEach(c => c.classList.remove('is-active'));
+        this.classList.add('is-active');
+        const val = this.getAttribute('data-val') || this.textContent.trim();
+        input.value = val;
+        input.classList.remove('is-invalid');
+        const err = input.closest('.dc-form-group')?.querySelector('.dc-error-msg');
+        if (err) err.classList.remove('visible');
+      });
+    });
+
+    // When user types custom text, sync active chip state
+    input.addEventListener('input', function(){
+      const val = this.value.trim().toLowerCase();
+      let matched = false;
+      chips.forEach(c => {
+        const cVal = (c.getAttribute('data-val') || c.textContent).trim().toLowerCase();
+        if (val === cVal) {
+          c.classList.add('is-active');
+          matched = true;
+        } else {
+          c.classList.remove('is-active');
+        }
+      });
+      // If user typed custom text not in chips, chips simply un-highlight
+    });
+  }
+
+  setupChips(domainChips, domainInput);
+  setupChips(eduChips, eduInput);
+
+  // ── Setup Modern CV File Upload ──
+  if (uploadBox && cvInput) {
+    function triggerFileSelect(e) {
+      if (e.target === removeFileBtn || (removeFileBtn && removeFileBtn.contains(e.target))) return;
+      cvInput.click();
+    }
+
+    uploadBox.addEventListener('click', triggerFileSelect);
+    if (uploadTrigger) uploadTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cvInput.click();
+    });
+
+    cvInput.addEventListener('change', function(){
+      if (this.files && this.files[0]) {
+        const file = this.files[0];
+        // 10MB limit check
+        if (file.size > 10 * 1024 * 1024) {
+          alert('File size exceeds 10MB limit. Please select a smaller PDF or DOC file.');
+          this.value = '';
+          resetUploadUI();
+          return;
+        }
+        const sizeMb = (file.size / (1024 * 1024)).toFixed(2);
+        if (uploadTitle) uploadTitle.textContent = file.name;
+        if (uploadSub) uploadSub.textContent = `${sizeMb} MB • Ready to upload`;
+        uploadBox.classList.add('has-file');
+      } else {
+        resetUploadUI();
+      }
+    });
+
+    if (removeFileBtn) {
+      removeFileBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        cvInput.value = '';
+        resetUploadUI();
+      });
+    }
+  }
+
+  function resetUploadUI() {
+    if (uploadTitle) uploadTitle.textContent = 'Click to upload your CV / Resume';
+    if (uploadSub) uploadSub.textContent = 'PDF, DOC, DOCX up to 10MB';
+    if (uploadBox) uploadBox.classList.remove('has-file');
+  }
+
+  function openModal() {
+    form.style.display = 'block';
+    form.reset();
+    resetUploadUI();
+    if (successBox) successBox.style.display = 'none';
+
+    // Clear validation errors
+    form.querySelectorAll('.dc-error-msg').forEach(el => el.classList.remove('visible'));
+    form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
+    // Set default chip selection
+    if (domainChips) {
+      const firstChip = domainChips.querySelector('.int-chip');
+      if (firstChip) {
+        domainChips.querySelectorAll('.int-chip').forEach(c => c.classList.remove('is-active'));
+        firstChip.classList.add('is-active');
+        if (domainInput) domainInput.value = firstChip.getAttribute('data-val') || firstChip.textContent;
+      }
+    }
+    if (eduChips) {
+      const firstChip = eduChips.querySelector('.int-chip');
+      if (firstChip) {
+        eduChips.querySelectorAll('.int-chip').forEach(c => c.classList.remove('is-active'));
+        firstChip.classList.add('is-active');
+        if (eduInput) eduInput.value = firstChip.getAttribute('data-val') || firstChip.textContent;
+      }
+    }
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    const firstInput = form.querySelector('#intName');
+    if (firstInput) setTimeout(() => firstInput.focus(), 150);
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      openModal();
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+  if (succCloseBtn) succCloseBtn.addEventListener('click', closeModal);
+  window.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Form submit handler
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    let hasError = false;
+
+    const nameInput = document.getElementById('intName');
+    const waInput = document.getElementById('intWhatsapp');
+    const emailInput = document.getElementById('intEmail');
+    const cityInput = document.getElementById('intCity');
+    const portfolioInput = document.getElementById('intPortfolio');
+    const submitBtn = document.getElementById('intSubmitBtn');
+
+    const nameErr = document.getElementById('intNameError');
+    const waErr = document.getElementById('intWhatsappError');
+    const emailErr = document.getElementById('intEmailError');
+    const cityErr = document.getElementById('intCityError');
+    const domainErr = document.getElementById('intDomainError');
+    const eduErr = document.getElementById('intEducationError');
+
+    const nameVal = nameInput ? nameInput.value.trim() : '';
+    const waVal = waInput ? waInput.value.trim() : '';
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+    const cityVal = cityInput ? cityInput.value.trim() : '';
+    const domainVal = domainInput ? domainInput.value.trim() : '';
+    const eduVal = eduInput ? eduInput.value.trim() : '';
+    const portfolioVal = portfolioInput ? portfolioInput.value.trim() : '';
+
+    if (!nameVal) {
+      nameInput.classList.add('is-invalid');
+      if (nameErr) nameErr.classList.add('visible');
+      hasError = true;
+    } else {
+      nameInput.classList.remove('is-invalid');
+      if (nameErr) nameErr.classList.remove('visible');
+    }
+
+    if (!waVal || waVal.replace(/\D/g, '').length < 8) {
+      waInput.classList.add('is-invalid');
+      if (waErr) waErr.classList.add('visible');
+      hasError = true;
+    } else {
+      waInput.classList.remove('is-invalid');
+      if (waErr) waErr.classList.remove('visible');
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailVal || !emailRegex.test(emailVal)) {
+      emailInput.classList.add('is-invalid');
+      if (emailErr) emailErr.classList.add('visible');
+      hasError = true;
+    } else {
+      emailInput.classList.remove('is-invalid');
+      if (emailErr) emailErr.classList.remove('visible');
+    }
+
+    if (!cityVal) {
+      cityInput.classList.add('is-invalid');
+      if (cityErr) cityErr.classList.add('visible');
+      hasError = true;
+    } else {
+      cityInput.classList.remove('is-invalid');
+      if (cityErr) cityErr.classList.remove('visible');
+    }
+
+    if (!domainVal) {
+      if (domainInput) domainInput.classList.add('is-invalid');
+      if (domainErr) domainErr.classList.add('visible');
+      hasError = true;
+    } else {
+      if (domainInput) domainInput.classList.remove('is-invalid');
+      if (domainErr) domainErr.classList.remove('visible');
+    }
+
+    if (!eduVal) {
+      if (eduInput) eduInput.classList.add('is-invalid');
+      if (eduErr) eduErr.classList.add('visible');
+      hasError = true;
+    } else {
+      if (eduInput) eduInput.classList.remove('is-invalid');
+      if (eduErr) eduErr.classList.remove('visible');
+    }
+
+    if (hasError) {
+      const firstInvalid = form.querySelector('.is-invalid');
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => firstInvalid.focus(), 250);
+      }
+      return;
+    }
+
+    // Generate unique Application ID
+    const randomNum = Math.floor(1000 + Math.random() * 9000);
+    const appId = 'DH-INT-' + randomNum;
+
+    // Show loading state on button
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Submitting...</span>';
+    }
+
+    // Prepare FormData payload for FormSubmit (handles file attachment & fields)
+    const formData = new FormData();
+    formData.append("Application ID", appId);
+    formData.append("Program", "Batch 2 - 2 Months Professional Paid Internship");
+    formData.append("Applicant Name", nameVal);
+    formData.append("WhatsApp Number", waVal);
+    formData.append("Email Address", emailVal);
+    formData.append("City / Location", cityVal);
+    formData.append("Internship Field", domainVal);
+    formData.append("Qualification", eduVal);
+    if (portfolioVal) formData.append("Portfolio Link", portfolioVal);
+
+    let cvFileName = "None (Not uploaded)";
+    if (cvInput && cvInput.files && cvInput.files[0]) {
+      const file = cvInput.files[0];
+      cvFileName = file.name;
+      formData.append("attachment", file);
+      formData.append("CV Attached", file.name);
+    } else {
+      formData.append("CV Attached", "None");
+    }
+
+    formData.append("_subject", `New Internship Application: [${appId}] Batch 2 Paid Internship - ${nameVal} (WA: ${waVal})`);
+    formData.append("_template", "table");
+    formData.append("_captcha", "false");
+
+    // Send complete application details directly to website Gmail (digitalhunarmand1@gmail.com)
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 7000);
+      await fetch('https://formsubmit.co/ajax/digitalhunarmand1@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData,
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+    } catch(err) {
+      // Gracefully continue so user flow is never interrupted
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>Submit</span>';
+    }
+
+    // Save record to localStorage
+    const record = {
+      appId,
+      name: nameVal,
+      whatsapp: waVal,
+      email: emailVal,
+      city: cityVal,
+      domain: domainVal,
+      education: eduVal,
+      cvFile: cvFileName,
+      portfolio: portfolioVal,
+      timestamp: new Date().toISOString()
+    };
+    try {
+      const existing = JSON.parse(localStorage.getItem('dh_internships') || '[]');
+      existing.push(record);
+      localStorage.setItem('dh_internships', JSON.stringify(existing));
+    } catch(err){}
+
+    // Update Success screen
+    const succAppId = document.getElementById('intSuccAppId');
+    const succName = document.getElementById('intSuccName');
+    const succWa = document.getElementById('intSuccWhatsapp');
+    const succDomain = document.getElementById('intSuccDomain');
+    const succEdu = document.getElementById('intSuccEdu');
+    const succCv = document.getElementById('intSuccCv');
+    const succWaBtn = document.getElementById('intSuccWaBtn');
+
+    if (succAppId) succAppId.textContent = appId;
+    if (succName) succName.textContent = nameVal;
+    if (succWa) succWa.textContent = waVal;
+    if (succDomain) succDomain.textContent = domainVal;
+    if (succEdu) succEdu.textContent = eduVal;
+    if (succCv) succCv.textContent = (cvFileName !== "None (Not uploaded)") ? cvFileName : "Not attached";
+
+    // Build pre-formatted WhatsApp message for instant 1-click confirmation
+    let waMsg = `*Digital Hunarmand - Batch 2 Internship Application*\n\n` +
+      `*Application ID:* ${appId}\n` +
+      `*Applicant Name:* ${nameVal}\n` +
+      `*WhatsApp:* ${waVal}\n` +
+      `*Email:* ${emailVal}\n` +
+      `*City:* ${cityVal}\n` +
+      `*Internship Field:* ${domainVal}\n` +
+      `*Qualification:* ${eduVal}\n`;
+    if (cvFileName !== "None (Not uploaded)") waMsg += `*CV Uploaded:* ${cvFileName}\n`;
+    if (portfolioVal) waMsg += `*Portfolio Link:* ${portfolioVal}\n`;
+    waMsg += `*Program:* Batch 2 — 2 Months Professional Paid Internship\n\n` +
+      `I have submitted my internship application on the website and details have been sent to your Gmail. Looking forward to your response!`;
+
+    if (succWaBtn) {
+      succWaBtn.href = `https://wa.me/923485168409?text=${encodeURIComponent(waMsg)}`;
+    }
+
+    // Transition to success state
+    form.style.display = 'none';
+    if (successBox) {
+      successBox.style.display = 'block';
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+
+  // Real-time error clearing
+  [
+    document.getElementById('intName'),
+    document.getElementById('intWhatsapp'),
+    document.getElementById('intEmail'),
+    document.getElementById('intCity'),
+    document.getElementById('intDomain'),
+    document.getElementById('intEducation')
+  ].forEach(inp => {
+    if (!inp) return;
+    const clearErr = function(){
+      if (this.classList.contains('is-invalid')) {
+        this.classList.remove('is-invalid');
+        const err = this.closest('.dc-form-group')?.querySelector('.dc-error-msg');
+        if (err) err.classList.remove('visible');
+      }
+    };
+    inp.addEventListener('input', clearErr);
+    inp.addEventListener('change', clearErr);
+  });
+
+  window.openInternshipModal = openModal;
+})();
+
 function handleGroupRouting() {
   let rawHash = (window.location.hash || '').replace('#', '').toLowerCase();
   if (rawHash === 'all-courses') rawHash = 'courses';
@@ -1142,7 +1547,7 @@ const HUNARMAND_SYSTEM_INSTRUCTION = `You are "Hunarmand AI", the official intel
 - Course Registration Google Form: https://docs.google.com/forms/d/e/1FAIpQLSc_lNFmcS41MbQ1KkLuHW6YzI9menzCMv8iIj_dDWR-BKz7vg/viewform
 
 5. PROGRAMS & OPPORTUNITIES:
-- 3-Month Professional Internship Program 2026: Work on live real-world projects, build your portfolio, receive an official verified completion certificate. (Apply via WhatsApp: https://wa.me/923485168409)
+- Batch 2 - 2 Months Professional Paid Internship: Work on live real-world projects, build your portfolio, earn a monthly stipend, and receive an official verified completion certificate. (Apply via the website internship application form or WhatsApp: https://wa.me/923485168409)
 - 1-on-1 Mentorship Program: Personalized career coaching with senior mentors, portfolio review, Upwork & Fiverr international client conversion secrets. (Book via WhatsApp: https://wa.me/923485168409)
 - Hiring: We are hiring for Facebook Page Admin, WhatsApp Community Admin, Group Admin roles. (Apply via WhatsApp: https://wa.me/923485168409)
 
@@ -1427,8 +1832,8 @@ function smartFallback(t, isEng) {
   }
   else if (l.match(/intern|internship|experience|training/)) {
     r = isEng
-      ? "Our **3-Month Professional Internship Program 2026** helps learners build a solid career:\n\n✓ Real Client Live Projects\n✓ Professional Mentorship & Feedback\n✓ Strong Freelancing Portfolio\n✓ Verified Completion Certificate\n\n[Apply for Internship](https://wa.me/923485168409?text=Hi%2C%20I%20want%20to%20apply%20for%20the%203-Month%20Internship%20Program)"
-      : "Hamara **3-Month Professional Internship Program 2026** students aur freshers ke liye practical career stepping stone hai:\n\n✓ Real client live projects par practical kaam\n✓ Professional portfolio aur CV building\n✓ Verified Internship Certificate\n✓ Mentorship & guidance\n\n[WhatsApp par Internship Apply Karein](https://wa.me/923485168409?text=Hi%2C%20I%20want%20to%20apply%20for%20the%203-Month%20Internship%20Program)";
+      ? "Our **Batch 2 — 2 Months Professional Paid Internship** helps learners build a solid career:\n\n✓ Real Client Live Projects\n✓ Paid Monthly Stipend\n✓ Professional Mentorship & Feedback\n✓ Strong Freelancing Portfolio\n✓ Verified Completion Certificate\n\n[Apply for Internship](#internship)"
+      : "Hamara **Batch 2 — 2 Months Professional Paid Internship Program** students aur freshers ke liye practical career stepping stone hai:\n\n✓ Real client live projects par practical kaam\n✓ Paid Monthly Stipend\n✓ Professional portfolio aur CV building\n✓ Verified Internship Certificate\n✓ Mentorship & guidance\n\n[Internship ke liye Apply Karein](#internship)";
   }
   else if (l.match(/mentor|mentorship|1-on-1|consultation|career guidance/)) {
     r = isEng
@@ -1445,10 +1850,10 @@ function smartFallback(t, isEng) {
       ? "📍 **Location & Reach:**\n\nDigital Hunarmand Hub operates from **Swat, KPK, Pakistan (Fizagat, Mingora)** while providing live online training and digital agency services globally!\n\n[Chat on WhatsApp](https://wa.me/923485168409)"
       : "📍 **Hamari Location:**\n\nDigital Hunarmand Hub **Fizagat, Mingora, Swat (KPK, Pakistan)** mein waqia hai, aur hum poori dunya ke students aur clients ko live online services aur training provide karte hain!\n\n[WhatsApp par Rabta Karein](https://wa.me/923485168409)";
   }
-  else if (l.match(/team|leadership|founder|ceo|director|cto|ctco|nidal|geeto|adil|arif|rizwan|owner/)) {
+  else if (l.match(/team|leadership|founder|ceo|director|cto|ctco|nidal|geeto|adil|arif|rizwan|owner|internee|interns|department/)) {
     r = isEng
-      ? "Digital Hunarmand Hub leadership team:\n\n• **Nidal Munir** — Founder & CEO\n• **Geeto Shakeel** — Co-Founder & Director\n• **Adil Rahman** — Chief Technology & Creative Officer\n• **Sayed Muhammad Arif Khan** — Team Leader\n• **Muhammad Rizwan** — Administrator\n\n[Contact Leadership](https://wa.me/923485168409)"
-      : "Digital Hunarmand Hub ki leadership team:\n\n• **Nidal Munir** — Founder & CEO\n• **Geeto Shakeel** — Co-Founder & Director\n• **Adil Rahman** — Chief Technology & Creative Officer\n• **Sayed Muhammad Arif Khan** — Team Leader\n• **Muhammad Rizwan** — Administrator\n\n[Leadership se Rabta Karein](https://wa.me/923485168409)";
+      ? "🌟 **Digital Hunarmand Hub Team & Departments:**\n\n**Executive Leadership:**\n• **Nidal Munir** — Founder & CEO\n• **Geeto Shakeel** — Co-Founder & Director\n• **Adil Rahman** — Chief Technology & Creative Officer\n• **Sayed Muhammad Arif Khan** — Team Leader\n• **Muhammad Rizwan** — Administrator\n\n**Department Internees:**\n• **Creative Department:** Waqar Ahmed, Niamatullah Khan, Rehan Khan, Shah Saad, Sohaib Khan, Aneeza Siddique\n• **Technical Department:** Muhammad Yaseen, Niamatullah Khan, Aneeza Siddique, Shah Saad, Hamza Khan\n• **Media Department:** Niamatullah Khan, Rehan Khan, Shafi Khan, Sohaib Khan\n• **Researcher Department:** Aneeza Siddique, Shah Saad\n\n[Explore Team & Departments](#team)\n[Contact Leadership](https://wa.me/923485168409)"
+      : "🌟 **Digital Hunarmand Hub Team aur Departments:**\n\n**Executive Leadership:**\n• **Nidal Munir** — Founder & CEO\n• **Geeto Shakeel** — Co-Founder & Director\n• **Adil Rahman** — Chief Technology & Creative Officer\n• **Sayed Muhammad Arif Khan** — Team Leader\n• **Muhammad Rizwan** — Administrator\n\n**Department Internees:**\n• **Creative Department:** Waqar Ahmed, Niamatullah Khan, Rehan Khan, Shah Saad, Sohaib Khan, Aneeza Siddique\n• **Technical Department:** Muhammad Yaseen, Niamatullah Khan, Aneeza Siddique, Shah Saad, Hamza Khan\n• **Media Department:** Niamatullah Khan, Rehan Khan, Shafi Khan, Sohaib Khan\n• **Researcher Department:** Aneeza Siddique, Shah Saad\n\n[Team aur Departments Dekhein](#team)\n[Leadership se Rabta Karein](https://wa.me/923485168409)";
   }
   else if (l.match(/hire|hiring|job|jobs|vacancy|admin|apply for job/)) {
     r = isEng
@@ -1492,7 +1897,7 @@ function qr(k, e){
     about: 'Tell me about Digital Hunarmand Hub',
     contact: 'How can I contact Digital Hunarmand?',
     hiring: 'What admin positions are you hiring for?',
-    internship: 'Tell me about the 3-Month Internship Program 2026',
+    internship: 'Tell me about the Batch 2 - 2 Months Professional Paid Internship',
     mentorship: 'How does the 1-on-1 Mentorship Program work?',
     team: 'Who are your team members and leadership?',
     partnership: 'Who are your strategic partners?',
