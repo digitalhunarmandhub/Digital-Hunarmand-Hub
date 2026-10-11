@@ -1,0 +1,30 @@
+name: song_to_instrument
+description: "AI-Powered Song to Instrumental converter mobile application"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  audioplayers: ^6.0.0
+  file_picker: ^8.0.0
+  dio: ^5.4.0
+  percent_indicator: ^4.2.3
+  flutter_animate: ^4.5.0
+  google_fonts: ^6.1.0
+  path_provider: ^2.1.2
+  share_plus: ^9.0.0
+  intl: ^0.19.0
+  uuid: ^4.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

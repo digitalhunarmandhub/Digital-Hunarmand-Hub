@@ -1,0 +1,24 @@
+# ==============================================================================
+# DIGITAL HUNARMAND HUB — AI AGENT WORKSPACE RULES & PROTOCOLS
+# ==============================================================================
+# These rules apply to all AI assistants (Cursor, Antigravity, Copilot, Claude, etc.)
+
+# 1. CONTEXT EFFICIENCY & TOKEN PRESERVATION (MANDATORY)
+- NEVER read or load the entirety of `index.html` (9,775 lines).
+- ALWAYS inspect `PROJECT_MAP.md` first to locate the exact section or line range.
+- Use targeted chunk reads (maximum 100-300 lines) around the required section only.
+- When editing, use targeted search-and-replace or line edits. Never rewrite the whole document.
+
+# 2. AUTOMATIC PROJECT MAP MAINTENANCE (MANDATORY POST-ACTION HOOK)
+- IF you make any of the following changes:
+    a) Add, modify, rename, or delete any HTML section (e.g. #contact, #courses, new modal).
+    b) Add or change CSS class names, color themes, or major layout structures.
+    c) Add, change, or deprecate JavaScript functions or API integrations.
+    d) Create or extract new files (e.g. style.css, main.js).
+- THEN you MUST AUTOMATICALLY update `PROJECT_MAP.md` as the final step of your response.
+- DO NOT WAIT for the user to ask you to update the map. This is your autonomous duty.
+
+# 3. CODE INTEGRITY
+- Preserve all existing animations, glassmorphism tokens, and responsive logic.
+- Keep all contact links (WhatsApp +92 348 5168409, Gmail digitalhunarmand1@gmail.com) working.
+- Maintain documentation integrity and keep code clean and modular.
